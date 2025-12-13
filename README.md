@@ -20,7 +20,7 @@ Building tools that make AI agents precise instead of probabilistic. My thesis: 
 
 Code Scalpel treats source code as graphs, not text. Using Program Dependence Graphs and Z3 symbolic execution, it enables AI coding agents to perform surgical modifications without hallucinating changes to unrelated code.
 
-**Validated Benchmark Results (December 2024):**
+**Validated Benchmark Results (December 2025):**
 
 | Metric | Result | Notes |
 |--------|--------|-------|
