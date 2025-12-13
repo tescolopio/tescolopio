@@ -99,7 +99,7 @@ NLP-powered browser extension that analyzes Terms of Service and Privacy Policie
 
 ## Background
 
-10+ years in IT security and compliance across financial services, technology, and logistics.
+10+ years in Operations, Regulatory Compliance, and IT security across financial services, technology, and logistics.
 
 **Current:** Security Consultant supporting Global Information Security at Bank of America (via TEKSystems), focused on Data Loss Prevention and compliance program acceleration.
 
