@@ -1,6 +1,6 @@
 # Tim Escolopio
 
-**Security & Compliance Program Manager | AI Security Architect | Open Source Developer**
+**Compliance & Security | AI Tools & Systems Architect | Open Source Developer**
 
 Charlotte, NC · [3dtsus@gmail.com](mailto:3dtsus@gmail.com) · [LinkedIn](https://linkedin.com/in/tescolopio)
 
@@ -14,40 +14,48 @@ Building tools that make AI agents precise instead of probabilistic. My thesis: 
 
 ## Featured Project
 
-### [Code Scalpel](https://github.com/tescolopio/code-scalpel_community) 🔬
+### [Code Scalpel](https://github.com/tescolopio/code_scalpel_community) 🔬
 
-**MCP Server Toolkit for AI Agents — Surgical Code Analysis**
+**MCP Server for AI Agents — Surgical Code Operations**
 
-Code Scalpel treats source code as graphs, not text. Using Program Dependence Graphs and Z3 symbolic execution, it enables AI coding agents to perform surgical modifications without hallucinating changes to unrelated code.
+Code Scalpel is the precision toolkit that lets AI agents analyze and modify code safely. Instead of feeding entire codebases into prompts, it surgically extracts only what's needed — the target function, its dependencies, and relevant context — using AST analysis, Program Dependence Graphs, and Z3 symbolic execution.
 
-**Validated Benchmark Results (December 2025):**
+**Internal Benchmark Results (December 2025):**
 
-| Metric | Result | Notes |
-|--------|--------|-------|
-| Token Efficiency | **94.5% reduction** | 18x compression (6,411 → 108 tokens best case) |
-| Cache Performance | **2,909x speedup** | Exceeds original 200x claim; 6,341x max |
-| Vulnerability Detection | **88.2% accuracy** | 0% false positive rate |
-| Surgical Extraction | **93% context reduction** | In refactoring workflows |
+| Metric | Result | Evidence |
+|--------|--------|----------|
+| Token Efficiency | **94.5% reduction** | 18.3x compression (6,411 → 108 tokens best case) |
+| Cache Performance | **2,909x speedup** | Average across operations; 6,341x max |
+| Vulnerability Detection | **70.0% accuracy** | 51.67% detection rate, high precision on core CWEs |
+| Surgical Extraction | **98% token savings** | Extract 16-line function: 5,000 → 110 tokens |
 
-**Detection by Vulnerability Type:**
+**Core Security Detection (100% Detection Rate):**
 
-| Category | Detection Rate |
-|----------|----------------|
-| Command Injection (CWE-78) | 100% |
-| SQL Injection (CWE-89) | 100% |
-| Code Injection (CWE-94) | 100% |
-| Insecure Deserialization (CWE-502) | 100% |
-| Weak Cryptography (CWE-327) | 100% |
-| Path Traversal (CWE-22) | 100% |
+| Category | CWE | Status |
+|----------|-----|--------|
+| Command Injection | CWE-78 | ✅ Validated |
+| Code Injection | CWE-94 | ✅ Validated |
+| Insecure Deserialization | CWE-502 | ✅ Validated |
+| Weak Cryptography | CWE-327 | ✅ Validated |
+
+*Additional coverage: SQL Injection (80%), Path Traversal, XSS, SSRF*
 
 All benchmarks reproducible: `python evidence/run_all_benchmarks.py`
 
-**The Problem:**
-Current AI coding tools stuff entire codebases into prompts, burning tokens on irrelevant code and producing hallucinated fixes. Code Scalpel extracts only semantically relevant code — the target function, callers, dependencies, and tests — reducing a 368-line context to 25 lines.
+**The Problem It Solves:**
+AI coding tools typically dump entire files into context windows, burning tokens on irrelevant code. This leads to hallucinated edits, broken dependencies, and wasted API costs. Code Scalpel gives agents 22 specialized tools to extract exactly what they need — reducing context from 368 lines to 25 lines while preserving correctness.
 
-**Stack:** Python · AST · PDG · Z3 Symbolic Execution · MCP Protocol · FastMCP  
-**Integrations:** Claude, Cursor, CrewAI, Autogen, LangChain  
-**Status:** v1.3.0 on [PyPI](https://pypi.org/project/code-scalpel/) · MIT License · 1,669 tests passing · 95%+ coverage
+**22 Specialized Tools:**
+- **Extraction**: `extract_code`, `get_call_graph`, `get_symbol_references`
+- **Security**: `security_scan`, `cross_file_security_scan`, `scan_dependencies`
+- **Verification**: `simulate_refactor`, `symbolic_execute`, `generate_unit_tests`
+- **Modification**: `update_symbol`, `rename_symbol` (atomic, safe operations)
+
+**Stack:** Python · Tree-sitter · AST · PDG · Z3 Theorem Prover · MCP Protocol  
+**Integrations:** Claude Desktop, GitHub Copilot, Cursor, CrewAI, Autogen, LangChain  
+**Status:** v3.3.0 (v1.0 releasing January 2026) · [PyPI](https://pypi.org/project/code-scalpel/) · MIT License · 4,700+ tests · 95%+ coverage
+
+🔗 [Documentation](https://github.com/tescolopio/code_scalpel_community)
 
 ---
 
