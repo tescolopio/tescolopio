@@ -46,10 +46,10 @@ All benchmarks reproducible: `python evidence/run_all_benchmarks.py`
 AI coding tools typically dump entire files into context windows, burning tokens on irrelevant code. This leads to hallucinated edits, broken dependencies, and wasted API costs. Code Scalpel gives agents 22 specialized tools to extract exactly what they need — reducing context from 368 lines to 25 lines while preserving correctness.
 
 **22 Specialized Tools:**
-- **Extraction**: `extract_code`, `get_call_graph`, `get_symbol_references`
-- **Security**: `security_scan`, `cross_file_security_scan`, `scan_dependencies`
-- **Verification**: `simulate_refactor`, `symbolic_execute`, `generate_unit_tests`
-- **Modification**: `update_symbol`, `rename_symbol` (atomic, safe operations)
+- **Surgical Extraction & Analysis**: `extract_code`,`analyze_code`,`get_project_map`, `get_symbol_references`,`get_call_graph`, `get_file_context`, `get_cross_file_dependencies`,`code_policy_check`
+- **Taint-Based Security**: `security_scan`,`unified_sink_detect`, `cross_file_security_scan`, `scan_dependencies`,`type_evaporation_scan`,`get_graph_neighborhood`
+- **Safe Modification**: `update_symbol`, `rename_symbol`,`simulate_refactor`,`validate_paths`
+- **Verification & Testing**: `crawl_project`, `symbolic_execute`, `generate_unit_tests`,`verify_policy_integrity`
 
 **Stack:** Python · Tree-sitter · AST · PDG · Z3 Theorem Prover · MCP Protocol  
 **Integrations:** Claude Desktop, GitHub Copilot, Cursor, CrewAI, Autogen, LangChain  
