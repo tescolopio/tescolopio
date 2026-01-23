@@ -14,7 +14,7 @@ Building tools that make AI agents precise instead of probabilistic. My thesis: 
 
 ## Featured Project
 
-### [Code Scalpel](https://github.com/tescolopio/code_scalpel_community) 🔬
+### [Code Scalpel](https://github.com/3D-Tech-Solutions/code-scalpel) 🔬
 
 **MCP Server for AI Agents — Surgical Code Operations**
 
