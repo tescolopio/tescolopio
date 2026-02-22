@@ -14,54 +14,77 @@ Building tools that make AI agents precise instead of probabilistic. My thesis: 
 
 ## Featured Project
 
-### [Code Scalpel](https://github.com/3D-Tech-Solutions/code-scalpel) 🔬
+### [Code Scalpel](https://github.com/3D-Tech-Solutions/code-scalpel)
 
 **MCP Server for AI Agents — Surgical Code Operations**
 
-Code Scalpel is the precision toolkit that lets AI agents analyze and modify code safely. Instead of feeding entire codebases into prompts, it surgically extracts only what's needed — the target function, its dependencies, and relevant context — using AST analysis, Program Dependence Graphs, and Z3 symbolic execution.
+Code Scalpel is a precision toolkit developed at [3D Tech Solutions LLC](https://github.com/3D-Tech-Solutions) that allows AI agents to analyze and modify code safely. Instead of feeding entire codebases into prompts and wasting context windows, it surgically extracts only what is needed—the target function, its dependencies, and relevant context—using AST analysis, Program Dependence Graphs, and Z3 symbolic execution.
 
-**Internal Benchmark Results (December 2025):**
+**The Problem It Solves:**
+AI coding tools typically dump entire files into context windows, burning tokens on irrelevant code. This leads to hallucinated edits, broken dependencies, and high API costs. Code Scalpel gives agents specialized tools to extract exactly what they need, reducing token usage by up to 99% (e.g., 10,000 tokens down to 50) while preserving correctness.
 
-| Metric | Result | Evidence |
-|--------|--------|----------|
-| Token Efficiency | **94.5% reduction** | 18.3x compression (6,411 → 108 tokens best case) |
-| Cache Performance | **2,909x speedup** | Average across operations; 6,341x max |
-| Vulnerability Detection | **70.0% accuracy** | 51.67% detection rate, high precision on core CWEs |
-| Surgical Extraction | **98% token savings** | Extract 16-line function: 5,000 → 110 tokens |
+**Performance & Efficiency:**
 
-**Core Security Detection (100% Detection Rate):**
+| Metric | Result | Impact |
+|--------|--------|--------|
+| Token Efficiency | **99% reduction** | 10,000 tokens → 50 tokens per query |
+| Cost Savings | **20x reduction** | Drastically lowers LLM API billing |
+| Context Focus | **High Precision** | Extracts exact AST nodes, not text blocks |
+
+**Security Detection Capabilities (Taint-Based Analysis):**
 
 | Category | CWE | Status |
 |----------|-----|--------|
-| Command Injection | CWE-78 | ✅ Validated |
-| Code Injection | CWE-94 | ✅ Validated |
-| Insecure Deserialization | CWE-502 | ✅ Validated |
-| Weak Cryptography | CWE-327 | ✅ Validated |
+| Command Injection | CWE-78 | Validated |
+| Code Injection | CWE-94 | Validated |
+| SQL/NoSQL Injection | CWE-89 | Validated |
+| Cross-Site Scripting | CWE-79 | Validated |
+| Path Traversal | CWE-22 | Validated |
 
-*Additional coverage: SQL Injection (80%), Path Traversal, XSS, SSRF*
+**23 Specialized Tools:**
+- **Extraction & Analysis:** `extract_code`, `analyze_code`, `get_file_context`, `get_symbol_references`, `get_cross_file_dependencies`
+- **Project Architecture:** `get_call_graph`, `get_project_map`, `get_graph_neighborhood`, `crawl_project`
+- **Taint-Based Security:** `security_scan`, `cross_file_security_scan`, `scan_dependencies`, `unified_sink_detect`, `type_evaporation_scan`
+- **Safe Modification:** `update_symbol`, `rename_symbol`, `simulate_refactor`
+- **Verification & Testing:** `symbolic_execute`, `generate_unit_tests`
+- **Policy & System:** `code_policy_check`, `verify_policy_integrity`, `validate_paths`, `get_capabilities`
 
-All benchmarks reproducible: `python evidence/run_all_benchmarks.py`
-
-**The Problem It Solves:**
-AI coding tools typically dump entire files into context windows, burning tokens on irrelevant code. This leads to hallucinated edits, broken dependencies, and wasted API costs. Code Scalpel gives agents 22 specialized tools to extract exactly what they need — reducing context from 368 lines to 25 lines while preserving correctness.
-
-**22 Specialized Tools:**
-- **Surgical Extraction & Analysis**: `extract_code`,`analyze_code`,`get_project_map`, `get_symbol_references`,`get_call_graph`, `get_file_context`, `get_cross_file_dependencies`,`code_policy_check`
-- **Taint-Based Security**: `security_scan`,`unified_sink_detect`, `cross_file_security_scan`, `scan_dependencies`,`type_evaporation_scan`,`get_graph_neighborhood`
-- **Safe Modification**: `update_symbol`, `rename_symbol`,`simulate_refactor`,`validate_paths`
-- **Verification & Testing**: `crawl_project`, `symbolic_execute`, `generate_unit_tests`,`verify_policy_integrity`
-
-**Stack:** Python · Tree-sitter · AST · PDG · Z3 Theorem Prover · MCP Protocol  
+**Stack:** Python · Tree-sitter · AST · PDG · Z3 Theorem Prover · FastMCP  
 **Integrations:** Claude Desktop, GitHub Copilot, Cursor, CrewAI, Autogen, LangChain  
-**Status:** v3.3.0 (v1.0 releasing January 2026) · [PyPI](https://pypi.org/project/code-scalpel/) · MIT License · 4,700+ tests · 95%+ coverage
+**Status:** v1.4.0 (Released February 2026) · [PyPI](https://pypi.org/project/code-scalpel/) · MIT License · 7,200+ tests · 95%+ coverage  
 
-🔗 [Documentation](https://github.com/tescolopio/code_scalpel_community)
+🔗 [Website](https://codescalpel.dev) | 🔗 [Documentation](https://github.com/3D-Tech-Solutions/code-scalpel/tree/main/docs) | 🔗 [Repository](https://github.com/3D-Tech-Solutions/code-scalpel)
 
 ---
 
 ## Other Projects
 
-### [Mind and Machine](https://github.com/tescolopio/mind-and-machine) 📚
+### [Folder Bridge](https://github.com/tescolopio/obsidian_folderbridge)
+
+A Obsidian community plugin that lets you mount arbitrary folders (local, network, cloud‑sync) into your vault as “virtual” notes.
+It transparently mirrors file changes both ways and tags them so your normal Obsidian workflow still works.
+I built it to treat external resources as first‑class, searchable parts of a vault without copying or breaking sync.
+
+Use for code snippets, reference docs, or any directory you want indexed by Obsidian.
+
+**Published:** v0.3  
+**In Development:** Obsidian Android App Integration Compatibility
+
+---
+
+### [Terms Guardian](https://github.com/tescolopio/terms-guardian) 
+*Browser Extension for Legal Document Analysis*
+
+NLP-powered browser extension that analyzes Terms of Service and Privacy Policies. Provides readability grades (A-F), section-by-section summaries, key clause extraction, and uncommon legal term definitions.
+
+**Features:**
+- User Rights Index (URI) scoring system
+- Parallel analysis pipeline for performance
+- Multi-browser support (Chrome, Edge, Firefox)
+
+---
+
+### [Mind and Machine](https://github.com/tescolopio/mind-and-machine) 
 *Bridging Human Cognition to AI Agents for AGI Systems*
 
 A book exploring how human cognitive architecture — conscious, subconscious, and unconscious agents working in concert — can inform AI agent design. Examines frameworks like AutoGen, CrewAI, and MetaGPT through a cognitive science lens.
@@ -71,7 +94,7 @@ A book exploring how human cognitive architecture — conscious, subconscious, a
 
 ---
 
-### [Mind Wars](https://github.com/tescolopio/mind-wars) 🎮
+### [Mind Wars](https://github.com/tescolopio/mind-wars) 
 *Async Multiplayer Cognitive Games Platform*
 
 A mobile platform for private group cognitive competitions — Family Mind Wars, Friends Mind Wars, Office Mind Wars. Turn-based gameplay across iOS 14+ and Android 8+.
@@ -82,18 +105,6 @@ A mobile platform for private group cognitive competitions — Family Mind Wars,
 - Offline mode with SQLite persistence
 - 126+ tests (100% pass rate)
 - ~18,100 lines of production code
-
----
-
-### [Terms Guardian](https://github.com/tescolopio/terms-guardian) 📋
-*Browser Extension for Legal Document Analysis*
-
-NLP-powered browser extension that analyzes Terms of Service and Privacy Policies. Provides readability grades (A-F), section-by-section summaries, key clause extraction, and uncommon legal term definitions.
-
-**Features:**
-- User Rights Index (URI) scoring system
-- Parallel analysis pipeline for performance
-- Multi-browser support (Chrome, Edge, Firefox)
 
 ---
 
