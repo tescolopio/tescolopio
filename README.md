@@ -72,7 +72,7 @@ Use for code snippets, reference docs, or any directory you want indexed by Obsi
 
 ---
 
-### [Terms Guardian](https://github.com/tescolopio/terms-guardian) 
+### [Terms Guardian](https://github.com/tescolopio/guard_tos) 
 *Browser Extension for Legal Document Analysis*
 
 NLP-powered browser extension that analyzes Terms of Service and Privacy Policies. Provides readability grades (A-F), section-by-section summaries, key clause extraction, and uncommon legal term definitions.
