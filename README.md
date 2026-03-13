@@ -8,6 +8,8 @@ Charlotte, NC · [3dtsus@gmail.com](mailto:3dtsus@gmail.com) · [LinkedIn](https
 
 ## Current Focus
 
+Looking for new opportunities and/or partnerships in GRC, AI Development, and/or IT Secruity-related positions.
+
 Building tools that make AI agents precise instead of probabilistic. My thesis: the path to reliable AI-assisted development runs through deterministic pre-processors, not larger context windows.
 
 ---
@@ -15,43 +17,24 @@ Building tools that make AI agents precise instead of probabilistic. My thesis: 
 ## Featured Project
 
 ### [Code Scalpel](https://github.com/3D-Tech-Solutions/code-scalpel)
+**Code Scalpel — MCP Server for AI Agents and Surgical Code Operations**
 
-**MCP Server for AI Agents — Surgical Code Operations**
+Code Scalpel is an MCP server toolkit from [3D Tech Solutions LLC](https://github.com/3D-Tech-Solutions) that gives AI agents deterministic, structure-aware ways to inspect and modify code. Instead of dumping entire files into an LLM context window, it works at the AST, graph, and symbolic-execution layer to extract relevant code, trace dependencies, analyze risk, and verify changes before they land.
 
-Code Scalpel is a precision toolkit developed at [3D Tech Solutions LLC](https://github.com/3D-Tech-Solutions) that allows AI agents to analyze and modify code safely. Instead of feeding entire codebases into prompts and wasting context windows, it surgically extracts only what is needed—the target function, its dependencies, and relevant context—using AST analysis, Program Dependence Graphs, and Z3 symbolic execution.
+**What it solves**
+Most AI coding workflows treat code as text: they read too much, miss dependencies, hallucinate edits, and waste tokens on irrelevant context. Code Scalpel replaces that with surgical operations such as symbol extraction, reference tracing, security scanning, safe symbol updates, and refactor simulation.
 
-**The Problem It Solves:**
-AI coding tools typically dump entire files into context windows, burning tokens on irrelevant code. This leads to hallucinated edits, broken dependencies, and high API costs. Code Scalpel gives agents specialized tools to extract exactly what they need, reducing token usage by up to 99% (e.g., 10,000 tokens down to 50) while preserving correctness.
+**Current snapshot**
+- **Version:** v2.1.2
+- **Core surface:** **22 core MCP tools** plus separate capability introspection
+- **Language coverage:** broad multi-language support across current analysis and extraction surfaces, including Python, JavaScript, TypeScript, Java, C, C++, C#, Go, Kotlin, PHP, Ruby, Swift, and Rust
+- **Current depth:** strongest parity today is in core parsing/extraction and selected analysis flows; some graph-oriented and advanced runtime surfaces are still language-dependent rather than fully uniform
+- **Verification:** **7,575+ tests** and roughly **94.86% combined coverage**
+- **Security focus:** taint-based detection for SQL/NoSQL injection, XSS, command injection, path traversal, dependency risk, and TypeScript type-safety erosion
+- **Deployment model:** local/self-hosted, MIT licensed, designed for Claude Desktop, GitHub Copilot, Cursor, CrewAI, AutoGen, and LangChain
 
-**Performance & Efficiency:**
-
-| Metric | Result | Impact |
-|--------|--------|--------|
-| Token Efficiency | **99% reduction** | 10,000 tokens → 50 tokens per query |
-| Cost Savings | **20x reduction** | Drastically lowers LLM API billing |
-| Context Focus | **High Precision** | Extracts exact AST nodes, not text blocks |
-
-**Security Detection Capabilities (Taint-Based Analysis):**
-
-| Category | CWE | Status |
-|----------|-----|--------|
-| Command Injection | CWE-78 | Validated |
-| Code Injection | CWE-94 | Validated |
-| SQL/NoSQL Injection | CWE-89 | Validated |
-| Cross-Site Scripting | CWE-79 | Validated |
-| Path Traversal | CWE-22 | Validated |
-
-**23 Specialized Tools:**
-- **Extraction & Analysis:** `extract_code`, `analyze_code`, `get_file_context`, `get_symbol_references`, `get_cross_file_dependencies`
-- **Project Architecture:** `get_call_graph`, `get_project_map`, `get_graph_neighborhood`, `crawl_project`
-- **Taint-Based Security:** `security_scan`, `cross_file_security_scan`, `scan_dependencies`, `unified_sink_detect`, `type_evaporation_scan`
-- **Safe Modification:** `update_symbol`, `rename_symbol`, `simulate_refactor`
-- **Verification & Testing:** `symbolic_execute`, `generate_unit_tests`
-- **Policy & System:** `code_policy_check`, `verify_policy_integrity`, `validate_paths`, `get_capabilities`
-
-**Stack:** Python · Tree-sitter · AST · PDG · Z3 Theorem Prover · FastMCP  
-**Integrations:** Claude Desktop, GitHub Copilot, Cursor, CrewAI, Autogen, LangChain  
-**Status:** v1.4.0 (Released February 2026) · [PyPI](https://pypi.org/project/code-scalpel/) · MIT License · 7,200+ tests · 95%+ coverage  
+**Stack**
+Python · MCP · Tree-sitter · AST/IR normalization · graph/dependency analysis · taint tracking · Z3 symbolic execution
 
 🔗 [Website](https://codescalpel.dev) | 🔗 [Documentation](https://github.com/3D-Tech-Solutions/code-scalpel/tree/main/docs) | 🔗 [Repository](https://github.com/3D-Tech-Solutions/code-scalpel)
 
@@ -59,20 +42,29 @@ AI coding tools typically dump entire files into context windows, burning tokens
 
 ## Other Projects
 
+### [Aegis OS](https://github.com/3D-Tech-Solutions/aegis-os)
+*Open Governance Runtime for Enterprise AI Agents*
+
+An open-source control plane for enterprise synthetic workforces. Each AI agent operates with a defined Role, Memory (short-term scratchpad + long-term vector store), Tools, and Constraints. The Governance Loop cycles through: Observe → Reason → Act → Audit → Learn. Compliance enforcement is built into the loop at the agent level, so organizations can deploy AI at scale without losing auditability or control.
+
+Built for teams that need to answer: *"What did that agent do, why, and can we prove it was compliant?"*
+
+**Stack:** Python · LangChain · Vector Store · Audit Logging
+**Status:** Active development · MIT License
+
+---
+
 ### [Folder Bridge](https://github.com/tescolopio/obsidian_folderbridge)
+*Obsidian Community Plugin*
 
-A Obsidian community plugin that lets you mount arbitrary folders (local, network, cloud‑sync) into your vault as “virtual” notes.
-It transparently mirrors file changes both ways and tags them so your normal Obsidian workflow still works.
-I built it to treat external resources as first‑class, searchable parts of a vault without copying or breaking sync.
+Mounts arbitrary folders (local, network, cloud-sync) into your Obsidian vault as virtual notes. Transparently mirrors file changes both ways and tags them so your normal Obsidian workflow still works. Built to treat external resources as first-class, searchable parts of a vault without copying or breaking sync. Useful for code snippets, reference docs, or any directory you want indexed by Obsidian.
 
-Use for code snippets, reference docs, or any directory you want indexed by Obsidian.
-
-**Published:** v0.3  
+**Published:** v0.3
 **In Development:** Obsidian Android App Integration Compatibility
 
 ---
 
-### [Terms Guardian](https://github.com/tescolopio/guard_tos) 
+### [Terms Guardian](https://github.com/tescolopio/guard_tos)
 *Browser Extension for Legal Document Analysis*
 
 NLP-powered browser extension that analyzes Terms of Service and Privacy Policies. Provides readability grades (A-F), section-by-section summaries, key clause extraction, and uncommon legal term definitions.
@@ -84,22 +76,22 @@ NLP-powered browser extension that analyzes Terms of Service and Privacy Policie
 
 ---
 
-### [Mind and Machine](https://github.com/tescolopio/mind-and-machine) 
+### [Mind and Machine](https://github.com/tescolopio/mind-and-machine)
 *Bridging Human Cognition to AI Agents for AGI Systems*
 
 A book exploring how human cognitive architecture — conscious, subconscious, and unconscious agents working in concert — can inform AI agent design. Examines frameworks like AutoGen, CrewAI, and MetaGPT through a cognitive science lens.
 
-**Published:** Introduction, Chapter 1 (The Human Mind as a System of Agents)  
+**Published:** Introduction, Chapter 1 (The Human Mind as a System of Agents)
 **In Development:** Learning & Memory, Emotion & Decision-Making, Metacognition
 
 ---
 
-### [Mind Wars](https://github.com/tescolopio/mind-wars) 
+### [Mind Wars](https://github.com/tescolopio/mind-wars)
 *Async Multiplayer Cognitive Games Platform*
 
 A mobile platform for private group cognitive competitions — Family Mind Wars, Friends Mind Wars, Office Mind Wars. Turn-based gameplay across iOS 14+ and Android 8+.
 
-**Status:** Phase 1 MVP Complete  
+**Status:** Phase 1 MVP Complete
 - 15 games across 5 cognitive categories
 - Full authentication & multiplayer lobby system
 - Offline mode with SQLite persistence
@@ -109,7 +101,6 @@ A mobile platform for private group cognitive competitions — Family Mind Wars,
 ---
 
 ### Past Enterprise Projects
-
 **The Knowledge Navigator** — React-based LLM+RAG application using Azure AI Services. Processed 1,600+ documents with ChatGPT 3.5, Azure Cognitive Search, and HNSW vector indexing. Increased enterprise information accessibility by 50%.
 
 **Data Governance Guru** — Custom GPT for enterprise data governance consultation. Provided expert-level guidance on complex data governance challenges for potential customers.
@@ -119,8 +110,6 @@ A mobile platform for private group cognitive competitions — Family Mind Wars,
 ## Background
 
 10+ years in Operations, Regulatory Compliance, and IT security across financial services, technology, and logistics.
-
-**Current:** Security Consultant supporting Global Information Security at Bank of America (via TEKSystems), focused on Data Loss Prevention and compliance program acceleration.
 
 **Previous Highlights:**
 - Accelerated iCCR exam readiness from initial assessment to exam-ready under tight timelines
@@ -134,12 +123,11 @@ A mobile platform for private group cognitive competitions — Family Mind Wars,
 - **Code Analysis:** AST, PDG construction, symbolic execution, taint analysis
 - **AI/ML:** LangChain, LangGraph, Azure OpenAI, RAG architectures, MCP protocol
 
-**Certifications:** Certified ScrumMaster (CSM)
+**Certifications:** CISA Coursework — In Progress (ISACA) · Certified ScrumMaster (CSM) · AI for Cybersecurity (LinkedIn) · Security Principals in Cloud Computing (Google)
 
 ---
 
 ## 3D Tech Solutions LLC
-
 My consulting practice delivering AI + cybersecurity solutions. Focus areas include enterprise AI adoption, SOC 2/ISO 27001 implementation, and security architecture for startups entering enterprise markets.
 
 ---
